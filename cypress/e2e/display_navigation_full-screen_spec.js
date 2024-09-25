@@ -1,4 +1,4 @@
-describe('Tests', function () {
+describe('Check Display of Navigation Panel Elements (Full Screen)', function () {
     it('should display all navigation elements in full screen (1920x1080)', function () {
 // exeptions
         cy.on('uncaught:exception', (err, runnable) => {

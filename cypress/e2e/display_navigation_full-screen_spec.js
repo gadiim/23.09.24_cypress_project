@@ -21,7 +21,8 @@ describe('Check Display of Navigation Panel Elements (Full Screen)', function ()
             'Sign Up'
         ];
 // Check for the display of the header.
-        cy.get('#__next > main > header').should('be.visible').then(() => { 
+        cy.get('#__next > main > header').should('be.visible').then(() => {
+            cy.get('#__next > main > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a > svg').should('be.visible'); // logo 
             elements.forEach(element => {
                 cy.contains(element).should('be.visible');
             });

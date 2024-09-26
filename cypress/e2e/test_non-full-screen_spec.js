@@ -1,14 +1,14 @@
-import UrlVisit from '././page_object/url';
-import ViewPort from '././page_object/viewport';
+import UrlVisit from './page_object/url';
+import ViewPort from './page_object/viewport';
 import Header from './page_object/header_elements';
-import navElementsNonFullScreen from '././page_object/data';
+import navElementsNonFullScreen from './page_object/data';
 
 const urlVisit = new UrlVisit();
 const viewPort = new ViewPort();
 const _header = new Header();
 const elements = navElementsNonFullScreen;
 
-describe('Check Display of Navigation Panel Elements (non Full Screen)', function () {
+describe('Test (non Full Screen)', function () {
     it('should display all navigation elements in non-full screen (1280x800)', function () {
 // exeptions
         cy.on('uncaught:exception', (err, runnable) => {

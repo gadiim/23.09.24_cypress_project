@@ -1,6 +1,15 @@
+import UrlVisit from './url';
+const urlVisit = new UrlVisit();
 
-
-const navElementsFullScreen = [
+const navUrls = [
+    () => urlVisit.productsPage(),
+    () => urlVisit.solutionsPage(),
+    () => urlVisit.pricingPage(),
+    () => urlVisit.whyTelnyxPage(),
+    () => urlVisit.resourcesPage(),
+  ];
+  
+  const navElementsFullScreen = [
     'Products',
     'Solutions',
     'Pricing',
@@ -9,11 +18,11 @@ const navElementsFullScreen = [
     'Developers',
     'Shop',
     'Contact us',
-    'Log in ',
+    'Log in',
     'Sign Up'
-];
-
-const navElementsNonFullScreen = [
+  ];
+  
+  const navElementsNonFullScreen = [
     'Products',
     'Solutions',
     'Pricing',
@@ -22,9 +31,8 @@ const navElementsNonFullScreen = [
     'Developers',
     'Shop',
     'Contact us',
-    'Log in ',
+    'Log in',
     'Sign Up'
-];
-
-export default navElementsNonFullScreen; navElementsFullScreen;
-
+  ];
+  
+  export { navUrls, navElementsFullScreen, navElementsNonFullScreen };

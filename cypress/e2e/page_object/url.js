@@ -6,10 +6,42 @@ class UrlVisit {
 
     baseProductsPage() {
         return 'https://telnyx.com/products/';
-    }
+    };
 
+    basePricingPage() {
+        return 'https://telnyx.com/pricing/';
+    };
+
+    baseSolutionsPage() {
+        return 'https://telnyx.com/solutions/';
+    };
+
+    baseWhyTelnyxPage() {
+        return 'https://telnyx.com/why-telnyx/';
+    };
+
+    baseResourcesPage() {
+        return 'https://telnyx.com/resources/';
+    };
+    
     productsPage() {
         return cy.visit(this.baseProductsPage())
+    };
+
+    solutionsPage() {
+        return cy.visit(this.baseSolutionsPage())
+    };
+
+    pricingPage() {
+        return cy.visit(this.basePricingPage())
+    };
+
+    whyTelnyxPage() {
+        return cy.visit(this.baseWhyTelnyxPage())
+    };
+
+    resourcesPage() {
+        return cy.visit(this.baseResourcesPage())
     };
 
     smsApiProductsPage() {
@@ -51,7 +83,7 @@ class UrlVisit {
     webrtcProductsPage() {
         return cy.visit(this.baseProductsPage() + 'webrtc/');
     };
-  
+
 };
 
 export default UrlVisit;

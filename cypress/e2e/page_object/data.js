@@ -34,5 +34,18 @@ const navUrls = [
     'Log in',
     'Sign Up'
   ];
+
+  const email = '123@mail.com';
+  const first_name = 'unreal first_name';
+  const last_name = 'unreal last_name';
+  const password = '123unreal_Password';
   
-  export { navUrls, navElementsFullScreen, navElementsNonFullScreen };
+  export { 
+    navUrls, 
+    navElementsFullScreen, 
+    navElementsNonFullScreen,
+    email,
+    first_name,
+    last_name,
+    password
+   };

@@ -31,7 +31,7 @@ describe('Test (non Full Screen)', function () {
 // 5.3. If the Main menu is displayed, check the display of submenu elements: 
             cy.contains('Main menu').click().then(() => {
                 elements.forEach(element => {
-                    cy.contains(element).should('be.visible');
+                    cy.contains(element).should('be.visible').click();
                 });
             });
         });

@@ -1,3 +1,13 @@
+import UrlVisit from '././page_object/url';
+import ViewPort from '././page_object/viewport';
+import Header from './page_object/header_elements';
+import navElementsNonFullScreen from '././page_object/data';
+
+const urlVisit = new UrlVisit();
+const viewPort = new ViewPort();
+const _header = new Header();
+const elements = navElementsNonFullScreen;
+
 describe('Check Display of Navigation Panel Elements (non Full Screen)', function () {
     it('should display all navigation elements in non-full screen (1280x800)', function () {
 // exeptions
@@ -6,25 +16,14 @@ describe('Check Display of Navigation Panel Elements (non Full Screen)', functio
         });
 
 // 2. Set the screen resolution to 1280 x 800 px.
-        cy.viewport(1280,800);      
+        viewPort.nonFullScreen();     
 // 3. Go to https://telnyx.com/.  
-        cy.visit('https://telnyx.com/');
-        const elements = [
-            'Products',
-            'Solutions',
-            'Pricing',
-            'Why Telnyx',
-            'Resources',
-            'Developers',
-            'Shop',
-            'Contact us',
-            'Log in '
-        ];
+        urlVisit.mainPage();
 // 4. Check for the display of the header.
-        cy.get('#__next > main > header').should('be.visible').then(() => {
+        _header.headerSelector().should('be.visible').then(() => {
 // 5. If the header is displayed, check for the display of the navigation panel elements: 
 // 5.1. Logo 
-            cy.get('#__next > main > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a > svg').should('be.visible'); // logo 
+            _header.logoSelector().should('be.visible'); // logo 
 // 5.2. Sign Up
             cy.contains('Sign Up').should('be.visible');
 // 5.3. Main menu
@@ -36,6 +35,5 @@ describe('Check Display of Navigation Panel Elements (non Full Screen)', functio
                 });
             });
         });
-
     });
 });

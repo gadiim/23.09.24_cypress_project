@@ -1,3 +1,13 @@
+import UrlVisit from '././page_object/url';
+import ViewPort from '././page_object/viewport';
+import Header from './page_object/header_elements';
+import navElementsFullScreen from '././page_object/data';
+
+const urlVisit = new UrlVisit();
+const viewPort = new ViewPort();
+const _header = new Header();
+const elements = navElementsFullScreen;
+
 describe('Check Display of Navigation Panel Elements (Full Screen)', function () {
     it('should display all navigation elements in full screen (1920x1080)', function () {
 // exeptions
@@ -5,24 +15,12 @@ describe('Check Display of Navigation Panel Elements (Full Screen)', function ()
             return false;
         });
 // Set the screen resolution to 1920 x 1080 px.
-        cy.viewport(1920, 1080); 
+        viewPort.fullScreen();
 // Go to https://telnyx.com/.
-        cy.visit('https://telnyx.com/');
-        const elements = [
-            'Products',
-            'Solutions',
-            'Pricing',
-            'Why Telnyx',
-            'Resources',
-            'Developers',
-            'Shop',
-            'Contact us',
-            'Log in ',
-            'Sign Up'
-        ];
+        urlVisit.mainPage();
 // Check for the display of the header.
-        cy.get('#__next > main > header').should('be.visible').then(() => {
-            cy.get('#__next > main > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a > svg').should('be.visible'); // logo 
+        _header.headerSelector().should('be.visible').then(() => {
+            _header.logoSelector().should('be.visible'); // logo 
             elements.forEach(element => {
                 cy.contains(element).should('be.visible');
             });

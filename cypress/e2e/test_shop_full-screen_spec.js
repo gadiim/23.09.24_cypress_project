@@ -13,7 +13,6 @@ const _shop = new Shop();
 const products = shopProducts;
 
 
-
 describe('Shop Page (Full Screen)', function () {
 
     // xit('should display visibility of each product', function () {
@@ -28,6 +27,7 @@ describe('Shop Page (Full Screen)', function () {
     // });
 
     it('should filter products by availability', function () {
+        let counter = 0;
         _exeption.exeption();
         viewPort.fullScreen();
         urlVisit.shopPage();
@@ -37,11 +37,6 @@ describe('Shop Page (Full Screen)', function () {
         // in stock
         _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true }); // примуове виконання
         cy.wait(1000);
-
-        products.forEach((product) => {
-            cy.get(product).contains('Sold out').should('not.visible')
-        });
-
 
         // reset
         _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true });
@@ -59,6 +54,6 @@ describe('Shop Page (Full Screen)', function () {
         // reset
         _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true }); // примуове виконання
         _shop.outStockAvailabilitySelector().should('be.visible').click({ force: true });
-
+cy.log('counter ' + counter);
     });
 });

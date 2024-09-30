@@ -15,16 +15,50 @@ const products = shopProducts;
 
 
 describe('Shop Page (Full Screen)', function () {
-    
-    it('should display visibility of each product', function () {
+
+    // xit('should display visibility of each product', function () {
+    //     _exeption.exeption();
+    //     viewPort.fullScreen();
+    //     urlVisit.shopPage();
+    //     _shop.shopSelector().click();
+
+    //     products.forEach(product => {
+    //         cy.get(product).should('be.visible');
+    //     });     
+    // });
+
+    it('should filter products by availability', function () {
         _exeption.exeption();
         viewPort.fullScreen();
         urlVisit.shopPage();
         _shop.shopSelector().click();
 
-        products.forEach(product => {
-            cy.get(product).should('be.visible');
+        _shop.availabilitySelector().click();
+        // in stock
+        _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true }); // примуове виконання
+        cy.wait(1000);
+
+        products.forEach((product) => {
+            cy.get(product).contains('Sold out').should('not.visible')
         });
-        
+
+
+        // reset
+        _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true });
+
+        // out of stock
+        _shop.outStockAvailabilitySelector().should('be.visible').click({ force: true });
+        cy.wait(1000);            
+        // reset
+        _shop.outStockAvailabilitySelector().should('be.visible').click({ force: true });
+
+        //all availability
+        _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true }); // примуове виконання
+        _shop.outStockAvailabilitySelector().should('be.visible').click({ force: true });
+        cy.wait(1000);
+        // reset
+        _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true }); // примуове виконання
+        _shop.outStockAvailabilitySelector().should('be.visible').click({ force: true });
+
     });
 });

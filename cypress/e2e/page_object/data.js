@@ -50,6 +50,9 @@ const navUrls = [
     '#CardLink-template--14828910739534__product-grid-6761603727438', //contains("Telnyx SIM Card for IoT and M2M (3PK)")
     '#CardLink-template--14828910739534__product-grid-7466250174542', //contains("Telnyx SIM Card M2M (1PK)")
     '#CardLink-template--14828910739534__product-grid-7466249289806', //contains("Telnyx SIM Card M2M (200PK)")
+    '#CardLink-template--14828910739534__product-grid-7466249683022', //contains("Telnyx SIM Card M2M (2PK)")
+    '#CardLink-template--14828910739534__product-grid-7466246438990', //contains("Telnyx SIM Card M2M (500PK)")
+    '#CardLink-template--14828910739534__product-grid-7466249486414', //contains("Telnyx SIM Card M2M (50PK)")
   ];
   
   export { 
@@ -59,5 +62,6 @@ const navUrls = [
     email,
     first_name,
     last_name,
-    password
+    password,
+    shopProducts
    };

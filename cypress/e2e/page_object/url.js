@@ -23,6 +23,10 @@ class UrlVisit {
     baseResourcesPage() {
         return 'https://telnyx.com/resources/';
     };
+
+    baseShopPage() {
+        return 'https://shop.telnyx.com/';
+    };
     
     productsPage() {
         return cy.visit(this.baseProductsPage())
@@ -42,6 +46,10 @@ class UrlVisit {
 
     resourcesPage() {
         return cy.visit(this.baseResourcesPage())
+    };
+
+    shopPage() {
+        return cy.visit(this.baseShopPage())
     };
 
     smsApiProductsPage() {
@@ -82,6 +90,10 @@ class UrlVisit {
 
     webrtcProductsPage() {
         return cy.visit(this.baseProductsPage() + 'webrtc/');
+    };
+
+    collectionsShopPage() {
+        return cy.visit(this.baseShopPage() + 'collections/all');
     };
 
 };

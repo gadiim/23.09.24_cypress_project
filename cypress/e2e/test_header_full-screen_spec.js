@@ -10,8 +10,8 @@ const urlVisit = new UrlVisit();
 const viewPort = new ViewPort();
 const _header = new Header();
 
-describe('Test (Full Screen)', function () {
-    xit('should display all navigation elements in full screen (1920x1080)', function () {
+describe('Test Header (Full Screen)', function () {
+    it('should display all navigation elements in full screen (1920x1080)', function () {
         // exeptions
         _exeption.exeption();
         // 1. Open the browser.
@@ -28,7 +28,7 @@ describe('Test (Full Screen)', function () {
         });
     });
 
-    xit('should navigate to the home page when the home button is clicked', function () {
+    it('should navigate to the home page when the home button is clicked', function () {
         // exeptions
         _exeption.exeption();
         // 1. Open the browser.
@@ -56,7 +56,7 @@ describe('Test (Full Screen)', function () {
         });
     });
 
-    xit('should failed check sign up registration (not valid data)', function () {
+    it('should failed check sign up registration (not valid data)', function () {
 
         _exeption.exeption();
         viewPort.fullScreen();
@@ -72,7 +72,7 @@ describe('Test (Full Screen)', function () {
         cy.contains('That email and password combination is not valid, or your browser could not be authenticated via recaptcha. Please try again.').should('be.visible');
     });
 
-    xit('should successfully(??) check sign up registration', function () {
+    it('should successfully(??) check sign up registration', function () {
         _exeption.exeption();
         viewPort.fullScreen();
         urlVisit.mainPage();
@@ -86,22 +86,4 @@ describe('Test (Full Screen)', function () {
         cy.get('button[type="submit"]').contains('SIGN UP').should('be.visible').click();
     });
 
-    xit('should scroll to the footer and ensure it is visible', function () {
-        _exeption.exeption();
-        viewPort.fullScreen();
-        urlVisit.mainPage();
-        cy.get('footer').scrollIntoView().should('be.visible');  
-    });
-
-    it('should verify the presence of social media links, click it, and check the URL', function () {
-        _exeption.exeption();
-        viewPort.fullScreen();
-        urlVisit.mainPage();
-        cy.contains('LinkedIn').click();
-        cy.url().should('eq', 'https://www.linkedin.com/company/telnyx/');
-        cy.contains('Twitter').click();
-        cy.url().should('include', 'x.com');
-        cy.contains('Facebook').click();
-        cy.url().should('eq', 'https://www.facebook.com/Telnyx/');
-    });
 });

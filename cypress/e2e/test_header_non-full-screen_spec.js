@@ -8,7 +8,7 @@ const viewPort = new ViewPort();
 const _header = new Header();
 const elements = navElementsNonFullScreen;
 
-describe('Test (non Full Screen)', function () {
+describe('Test Header (non Full Screen)', function () {
     it('should display all navigation elements in non-full screen (1280x800)', function () {
 // exeptions
         cy.on('uncaught:exception', (err, runnable) => {

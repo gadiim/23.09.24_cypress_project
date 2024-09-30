@@ -23,7 +23,7 @@ describe('Shop Page (Full Screen)', function () {
         _shop.shopSelector().click();
 
         products.forEach(product => {
-                cy.get(product).should('be.visible');
+            cy.get(product).should('be.visible');
         });
         
     });

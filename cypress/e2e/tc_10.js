@@ -14,19 +14,6 @@ const products = shopProducts;
 
 
 describe('Shop Page (Full Screen)', function () {
-
-    // xit('should display visibility of each product', function () {
-    //     _exeption.exeption();
-    //     viewPort.fullScreen();
-    //     urlVisit.shopPage();
-    //     _shop.shopSelector().click();
-
-    //     products.forEach(product => {
-    //         cy.get(product).should('be.visible');
-    //     });     
-    // });
-
-
     it('should add a product to the cart in the Shop section', function () {
         
         _exeption.exeption();

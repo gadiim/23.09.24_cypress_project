@@ -52,6 +52,13 @@ You can run tests in various ways:
    npm run cypress:run:chrome
    npm run cypress:run:firefox
    ```
+- To run tests for specific test files:
+  ```bash
+   npm run test:footer
+   npm run test:header
+   npm run test:shop
+   npm run test:header-nfs
+   ```
+## Test Structure
 
-   
-   
+

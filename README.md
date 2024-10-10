@@ -68,8 +68,25 @@ The tests are organized in the following structure:
 │   ├── test_footer_full-screen_spec.js
 │   ├── test_header_full-screen_spec.js
 │   ├── test_header_non-full-screen_spec.js
-│   └── test_shop-screen_spec.js
+│   └── test_shop_full-screen_spec.js
 └── fixtures/
-
    ```
+Each test file contains specific test cases that validate various functionalities of the website.
 
+## Configuration
+
+The Cypress configuration is located in cypress.config.js. You can customize the viewport dimensions, video settings, retries, and more in this file.
+
+### Example Configuration:
+```javascript
+module.exports = defineConfig({
+  e2e: {
+    specPattern: 'cypress/e2e/**/*.js',
+    viewportWidth: 1920,
+    viewportHeight: 1080,
+    video: false,
+    retries: 1,
+    screenshotOnRunFailure: true,
+  },
+});
+```

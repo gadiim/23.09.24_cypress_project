@@ -75,9 +75,9 @@ Each test file contains specific test cases that validate various functionalitie
 
 ## Configuration
 
-The Cypress configuration is located in cypress.config.js. You can customize the viewport dimensions, video settings, retries, and more in this file.
+The Cypress configuration is located in cypress.config.js. 
 
-### Example Configuration:
+### Configuration:
 ```javascript
 module.exports = defineConfig({
   e2e: {
@@ -90,3 +90,16 @@ module.exports = defineConfig({
   },
 });
 ```
+### Contributing:
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create your feature branch (git checkout -b feature/YourFeature).
+3. Commit your changes (git commit -m 'Add some feature').
+4. Push to the branch (git push origin feature/YourFeature).
+5. Open a pull request.
+
+ ## License
+
+ No license yet.

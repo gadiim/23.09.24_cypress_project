@@ -1,6 +1,31 @@
 {
+  "name": "telnyx.com_test",
+  "version": "1.0.1",
+  "description": "23.09.24_cypress_test_project",
+
   "devDependencies": {
     "@faker-js/faker": "^9.0.3",
     "cypress": "^13.14.2"
-  }
+  },
+
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:firefox": "cypress run --browser firefox",
+    "cypress:ci": "cypress run --headless",
+    "test:footer": "cypress run --spec 'cypress/e2e/test_footer_full-screen_spec.js'",
+    "test:header": "cypress run --spec 'cypress/e2e/test_header_full-screen_spec.js'",
+    "test:shop": "cypress run --spec 'cypress/e2e/test_shop_full-screen_spec.js'",
+    "test:header-nfs": "cypress run --spec 'cypress/e2e/test_header_non-full-screen_spec.js'"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git + https://github.com/gadiim/23.09.24_cypress_project"
+  },
+
+  "dependencies": {},
+  "author": "gadiim",
+  "license": ""
 }

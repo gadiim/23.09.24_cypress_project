@@ -31,8 +31,7 @@ const navUrls = [
     'Developers',
     'Shop',
     'Contact us',
-    'Log in',
-    'Sign Up'
+    'Log in'
   ];
 
   const email = '123@mail.com';

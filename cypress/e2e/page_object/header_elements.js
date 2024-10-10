@@ -1,11 +1,11 @@
 class Header {
 
     headerSelector() {
-        return cy.get('#__next > main > header')
+        return cy.get('.c-eceNPt > .c-cUhiIV')
     };
 
-    logoSelector() {
-        return cy.get('#__next > main > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a > svg')
+    homeSelector() {
+        return cy.get('.c-fjNNbA')
     };
 
     shopSelector() {

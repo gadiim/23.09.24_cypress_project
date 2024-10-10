@@ -1,78 +1,61 @@
 import UrlVisit from './page_object/url';
-import ViewPort from './page_object/viewport';
 import MyExeption from './page_object/exeptions';
-import Header from './page_object/header_elements';
 import Shop from './page_object/shop_elements';
 import { shopProducts } from './page_object/data';
 
 const _exeption = new MyExeption();
 const urlVisit = new UrlVisit();
-const viewPort = new ViewPort();
-const _header = new Header();
 const _shop = new Shop();
 const products = shopProducts;
 
 
-describe('Shop Page (Full Screen)', function () {
+describe('Shop Page telnyx.com (Full Screen)', function () {
 
-    // xit('should display visibility of each product', function () {
-    //     _exeption.exeption();
-    //     viewPort.fullScreen();
-    //     urlVisit.shopPage();
-    //     _shop.shopSelector().click();
-
-    //     products.forEach(product => {
-    //         cy.get(product).should('be.visible');
-    //     });     
-    // });
-
-
-    it('should add a product to the cart in the Shop section', function () {
-        
+    beforeEach(function () {
         _exeption.exeption();
-        viewPort.fullScreen();
         urlVisit.shopPage();
         _shop.shopSelector().click();
-        _shop.availabilitySelector().click();
+    });
+
+    it('should display visibility of each product', function () {
+
+        products.forEach(product => {
+            cy.get(product).should('be.visible');
+        });
+    });
+
+    it('should filter products by availability', function () {
+
         // in stock
-        _shop.inStockAvailabilitySelector().should('be.visible').click({ force: true }); // примуове виконання
-        cy.wait(2000);
+        _shop.clickAvailabilitySelector('inStock');
+        _shop.findVisibleProducts().then(($filteredLi) => {
+            const inStock = $filteredLi.length;
+            cy.log('in Stock:', inStock);
+        });
 
-        
-            cy.get('#product-grid').find('li').should('be.visible').then(($filteredLi) => {
-                $filteredLi.click();
-                cy.contains('Add to cart ').click(); // add to cart
-                cy.get('#CartDrawer > div.drawer__inner > div.drawer__header > button').click(); // close cart
-                cy.wait(1000);
-                cy.go('back');
-            });
-        
+        // reset
+        _shop.resetAvailabilityFilters();
 
+        // out of stock
+        _shop.clickAvailabilitySelector('outStock');
+        _shop.findVisibleProducts().then(($filteredLi) => {
+            const outStock = $filteredLi.length;
+            cy.log('out Stock:', outStock);
+        });
 
-        // const shopProducts = [
-        //     '#CardLink-template--14828910739534__product-grid-6960027533390', //contains("Telnyx Classic Hat")
-        //     '#CardLink-template--14828910739534__product-grid-7428845666382', //contains("Telnyx International Travel Adapter")
-        //     '#CardLink-template--14828910739534__product-grid-7428954161230', //contains("Telnyx Portable Wireless Power Charger")
-        //     '#CardLink-template--14828910739534__product-grid-6915266183246', //contains("Telnyx Pullover Hoodie")
-        //     '#CardLink-template--14828910739534__product-grid-6738575687758', //contains("Telnyx SIM Card for IoT and M2M (10PK)")
-        //     '#CardLink-template--14828910739534__product-grid-6751953256526', //contains("Telnyx SIM Card for IoT and M2M (1PK)")
-        //     '#CardLink-template--14828910739534__product-grid-6761603727438', //contains("Telnyx SIM Card for IoT and M2M (3PK)")
-        //   ];
-        
-        //   shopProducts.forEach(product => {
-        //     cy.get(product).should('be.visible').click();
+        // reset
+        _shop.resetAvailabilityFilters();
 
-        //         cy.contains('Add to cart ').click(); // add to cart
-        //         cy.get('#CartDrawer > div.drawer__inner > div.drawer__header > button').click(); // close cart
-        //         cy.wait(1000);
-        //         cy.go('back');
-        // });
-    })
+        // all availability
+        _shop.clickAvailabilitySelector('inStock');
+        _shop.clickAvailabilitySelector('outStock');
+        _shop.findVisibleProducts().then(($filteredLi) => {
+            const allSelected = $filteredLi.length;
+            cy.log('all Selected:', allSelected);
+        });
 
-
-
-    // cy.get('#CardLink-template--14828910739534__product-grid-6960027533390').click();
-    // cy.get('button[name="add"]').click(); // add to cart
-    // cy.get('#CartDrawer > div.drawer__inner > div.drawer__header > button').click(); // close cart
+        // reset
+        _shop.resetAvailabilityFilters();
+    });
 
 });

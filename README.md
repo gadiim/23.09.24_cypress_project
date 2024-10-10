@@ -61,4 +61,15 @@ You can run tests in various ways:
    ```
 ## Test Structure
 
+The tests are organized in the following structure:
+   ```sql
+   cypress/
+├── e2e/
+│   ├── test_footer_full-screen_spec.js
+│   ├── test_header_full-screen_spec.js
+│   ├── test_header_non-full-screen_spec.js
+│   └── test_shop-screen_spec.js
+└── fixtures/
+
+   ```
 

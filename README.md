@@ -34,3 +34,24 @@ Make sure you have the following installed on your machine:
    ```bash
    npm install
    ```
+
+## Running Tests
+
+You can run tests in various ways:
+
+- To open the Cypress Test Runner:
+   ```bash
+   npm run cypress:open
+   ```
+- To run all tests in headless mode:  
+   ```bash
+   npm run cypress:run
+   ```
+- To run tests in specific browsers:
+   ```bash
+   npm run cypress:run:chrome
+   npm run cypress:run:firefox
+   ```
+
+   
+   

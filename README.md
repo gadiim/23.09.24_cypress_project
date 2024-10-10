@@ -26,3 +26,11 @@ Make sure you have the following installed on your machine:
    ```bash
    git clone https://github.com/gadiim/23.09.24_cypress_project.git
    ```
+2. Navigate into the project directory:
+   ```bash
+   cd 23.09.24_cypress_project
+   ```
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```

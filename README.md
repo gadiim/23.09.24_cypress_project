@@ -65,10 +65,10 @@ The tests are organized in the following structure:
    ```sql
    cypress/
 ├── e2e/
-│   ├── test_footer_full-screen_spec.js
-│   ├── test_header_full-screen_spec.js
-│   ├── test_header_non-full-screen_spec.js
-│   └── test_shop_full-screen_spec.js
+│   ├── test_footer_full_screen_spec.js
+│   ├── test_header_full_screen_spec.js
+│   ├── test_header_non_full_screen_spec.js
+│   └── test_shop_full_screen_spec.js
 └── fixtures/
    ```
 Each test file contains specific test cases that validate various functionalities of the website.

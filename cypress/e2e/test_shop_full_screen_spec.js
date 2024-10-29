@@ -3,18 +3,18 @@ import MyExeption from './page_object/exeptions';
 import Shop from './page_object/shop_elements';
 import { shopProducts } from './page_object/data';
 
-const _exeption = new MyExeption();
+const exeptionObject = new MyExeption();
 const urlVisit = new UrlVisit();
-const _shop = new Shop();
+const shopObject = new Shop();
 const products = shopProducts;
 
 
 describe('Shop Page telnyx.com (Full Screen)', function () {
 
     beforeEach(function () {
-        _exeption.exeption();
+        exeptionObject.exeption();
         urlVisit.shopPage();
-        _shop.shopSelector().click();
+        shopObject.shopSelector().click();
     });
 
     it('should display visibility of each product', function () {
@@ -27,35 +27,35 @@ describe('Shop Page telnyx.com (Full Screen)', function () {
     it('should filter products by availability', function () {
 
         // in stock
-        _shop.clickAvailabilitySelector('inStock');
-        _shop.findVisibleProducts().then(($filteredLi) => {
+        shopObject.clickAvailabilitySelector('inStock');
+        shopObject.findVisibleProducts().then(($filteredLi) => {
             const inStock = $filteredLi.length;
             cy.log('in Stock:', inStock);
         });
 
         // reset
-        _shop.resetAvailabilityFilters();
+        shopObject.resetAvailabilityFilters();
 
         // out of stock
-        _shop.clickAvailabilitySelector('outStock');
-        _shop.findVisibleProducts().then(($filteredLi) => {
+        shopObject.clickAvailabilitySelector('outStock');
+        shopObject.findVisibleProducts().then(($filteredLi) => {
             const outStock = $filteredLi.length;
             cy.log('out Stock:', outStock);
         });
 
         // reset
-        _shop.resetAvailabilityFilters();
+        shopObject.resetAvailabilityFilters();
 
         // all availability
-        _shop.clickAvailabilitySelector('inStock');
-        _shop.clickAvailabilitySelector('outStock');
-        _shop.findVisibleProducts().then(($filteredLi) => {
+        shopObject.clickAvailabilitySelector('inStock');
+        shopObject.clickAvailabilitySelector('outStock');
+        shopObject.findVisibleProducts().then(($filteredLi) => {
             const allSelected = $filteredLi.length;
             cy.log('all Selected:', allSelected);
         });
 
         // reset
-        _shop.resetAvailabilityFilters();
+        shopObject.resetAvailabilityFilters();
     });
 
 });

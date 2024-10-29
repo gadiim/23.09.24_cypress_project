@@ -35,8 +35,8 @@ const navUrls = [
   ];
 
   const email = '123@mail.com';
-  const first_name = 'unreal first_name';
-  const last_name = 'unreal last_name';
+  const firstName = 'unreal first_name';
+  const lastName = 'unreal last_name';
   const password = '123unreal_Password';
 
   const shopProducts = [
@@ -59,8 +59,8 @@ const navUrls = [
     navElementsFullScreen, 
     navElementsNonFullScreen,
     email,
-    first_name,
-    last_name,
+    firstName,
+    lastName,
     password,
     shopProducts
    };
